@@ -43,9 +43,14 @@ function showDescription(imdbID) {
     fetch(`http://www.omdbapi.com/?i=${imdbID}&apikey=${apiKey}&lang=fr`)
       .then(response => response.json())
       .then(data => {
-        const popUp = document.querySelector('#popup');
-        alert(`Résumé: ${data.Plot}. \n\nRéalisateur:  ${data.Director}`);
+        const modalTitle = document.querySelector('#movieModalLabel');
+        const modalBody = document.querySelector('.modal-body');
+        modalTitle.innerHTML = data.Title;
+        modalBody.innerHTML = `<p>Résumé: ${data.Plot}</p><p>Réalisateur:  ${data.Director}</p><p>Sortie le:  ${data.Released}</p>`;
+        $('#movieModal').modal('show');
         console.log(data);
+
+
       })
       .catch(error => console.log(error));
   }
