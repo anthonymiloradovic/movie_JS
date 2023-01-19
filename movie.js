@@ -16,9 +16,9 @@ form.addEventListener("submit", (event) => { //  lorsque vous soumettez le formu
         console.log(data);
         
           const movieItem = document.createElement("div");
-          movieItem.classList.add("col-sm-4", "popo");
+          movieItem.classList.add("col-sm-4");
           movieItem.innerHTML = `
-            <div class="card mb-3" style="max-width: 540px;">
+            <div class="card mb-3 ">
             <div class="row g-0">
             <div class="col-md-4">
             <img src="${movie.Poster}" class="img-fluid rounded-start" alt="${movie.Title}" >
@@ -27,7 +27,7 @@ form.addEventListener("submit", (event) => { //  lorsque vous soumettez le formu
             <div class="card-body">
                 <h5 class="card-title">${movie.Title}</h5>
                 <p class="card-text">Année de sortie: ${movie.Year}</p>
-                <button href="#" class="btn btn-secondary" onclick="showDescription('${movie.imdbID}')"> Read more</button>
+                <button id="readMore" class="btn btn-outline-secondary btn-sm" onclick="showDescription('${movie.imdbID}')"> Read more</button>
             </div>
             </div>
         </div>
@@ -45,8 +45,9 @@ function showDescription(imdbID) {
       .then(data => {
         const modalTitle = document.querySelector('#movieModalLabel');
         const modalBody = document.querySelector('.modal-body');
-        modalTitle.innerHTML = data.Title;
-        modalBody.innerHTML = `<p>Résumé: ${data.Plot}</p><p>Réalisateur:  ${data.Director}</p><p>Sortie le:  ${data.Released}</p>`;
+        console.log(data);
+        modalTitle.innerHTML = `<h2 style="bold">${data.Title}</h2>`;
+        modalBody.innerHTML = `<p>Résumé: ${data.Plot}</p><p>Réalisateur:  ${data.Director}</p><p id="sortieFilm">Sortie le:  ${data.Released}</p>`;
         $('#movieModal').modal('show');
         console.log(data);
 

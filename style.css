@@ -1,8 +1,37 @@
 body{
     margin: 20px 20px;
-    color: rgb(100, 2, 212);
+    color: #7a1dd8;
     font-family: 'Montserrat', sans-serif;
 }
 img {
     object-fit: contain;
+}
+
+form{
+    width: 300px;
+}
+
+#submit{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+h1{
+    font-family: 'Londrina Shadow', cursive;
+    font-size: 94px;
+}
+#readMore{
+    margin-top: 50px;
+    color: #7a1dd8;
+
+}
+#readMore:hover{
+    background-color: #7a1dd8;
+    color: white;
+}
+
+#sortieFilm{
+    color: rgb(15, 15, 181);
+    font-weight: bold;
+    border-bottom: 1px bold red;
 }
