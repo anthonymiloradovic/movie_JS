@@ -4,13 +4,13 @@ const input = document.querySelector("#movie");
 const movieList = document.querySelector("#movie-list");
 const urlMovie = `http://img.omdbapi.com/?apikey=${apiKey}&`
 
-form.addEventListener("submit", (event) => { //  lorsque vous soumettez le formulaire (en cliquant sur le bouton "Envoyer"), une fonction sera appelée.
+form.addEventListener("submit", (event) => { //  lorsque l'on soumet le formulaire (en cliquant sur le bouton "Rechercher"), une fonction sera appelée.
   event.preventDefault(); // empêche le comportement par défaut du formulaire d'être exécuté
   const movie = input.value;  // récupère la valeur saisie dans le champ de saisie de texte
-  movieList.innerHTML = ''; //  vide le contenu de l'élément HTML qui est stocké dans la variable "movieList". Cela signifie que lorsque vous effectuez une nouvelle recherche, les résultats précédents sont effacés.
+  movieList.innerHTML = ''; //  vide le contenu de l'élément html qui est stocké dans la variable "movieList". Cela signifie que lorsque l'on effectue une nouvelle recherche, les résultats précédents sont effacés.
   
-  fetch(`http://www.omdbapi.com/?s=${movie}&apikey=${apiKey}`) // envoie une demande à l'API OMDB pour obtenir les informations sur le film que vous avez recherché.
-    .then(response => response.json()) //  prend la réponse de l'API et la transforme en un format de données qu'on peut utiliser en javascript.
+  fetch(`http://www.omdbapi.com/?s=${movie}&apikey=${apiKey}`) // envoie une demande à l'API  pour obtenir les informations sur le film qu'on a recherché.
+    .then(response => response.json()) //  prend la réponse de l'api et la transforme en un format de données qu'on peut utiliser en javascript.
     .then(data => { 
        data.Search.forEach((movie) => { // parcourt les résultats de la recherche et pour chaque film dans les résultats, elle crée un élément HTML qui contient une image de l'affiche du film, le titre et l'année de sortie.
         console.log(data);
