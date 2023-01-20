@@ -2,7 +2,6 @@ const apiKey = '12b42543';
 const form = document.querySelector("form");
 const input = document.querySelector("#movie");
 const movieList = document.querySelector("#movie-list");
-const urlMovie = `http://img.omdbapi.com/?apikey=${apiKey}&`
 
 form.addEventListener("submit", (event) => { //  lorsque l'on soumet le formulaire (en cliquant sur le bouton "Rechercher"), une fonction sera appelée.
   event.preventDefault(); // empêche le comportement par défaut du formulaire d'être exécuté
@@ -50,7 +49,6 @@ function showDescription(imdbID) {
         modalBody.innerHTML = `<p>Résumé: ${data.Plot}</p><p>Réalisateur:  ${data.Director}</p><p id="sortieFilm">Sortie le:  ${data.Released}</p>`;
         $('#movieModal').modal('show');
         console.log(data);
-
 
       })
       .catch(error => console.log(error));
